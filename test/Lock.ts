@@ -1,9 +1,12 @@
-const {
+import {
   time,
   loadFixture,
-} = require("@nomicfoundation/hardhat-network-helpers");
-const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
-const { expect } = require("chai");
+} from "@nomicfoundation/hardhat-network-helpers";
+import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
+import { expect } from "chai";
+import { ethers } from "hardhat";
+import type { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
+import type { Lock } from "../typechain-types";
 
 describe("Lock", function () {
   // We define a fixture to reuse the same setup in every test.
@@ -20,7 +23,7 @@ describe("Lock", function () {
     const [owner, otherAccount] = await ethers.getSigners();
 
     const Lock = await ethers.getContractFactory("Lock");
-    const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+    const lock = await Lock.deploy(unlockTime, { value: lockedAmount }) as Lock;
 
     return { lock, unlockTime, lockedAmount, owner, otherAccount };
   }

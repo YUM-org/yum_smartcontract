@@ -10,6 +10,10 @@ cache
 artifacts
 typechain-types
 
+# TypeScript
+dist
+*.tsbuildinfo
+
 # Coverage directory used by tools like istanbul
 coverage
 

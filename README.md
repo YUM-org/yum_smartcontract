@@ -1,15 +1,16 @@
 # YUM Smart Contract Project
 
-This is a Hardhat project for developing and deploying smart contracts.
+This is a Hardhat project for developing and deploying smart contracts using TypeScript.
 
 ## Project Structure
 
 ```
 yum_smartcontract/
 ├── contracts/          # Smart contracts
-├── scripts/           # Deployment scripts
-├── test/              # Test files
-├── hardhat.config.js  # Hardhat configuration
+├── scripts/           # Deployment scripts (TypeScript)
+├── test/              # Test files (TypeScript)
+├── hardhat.config.ts  # Hardhat configuration (TypeScript)
+├── tsconfig.json      # TypeScript configuration
 └── package.json       # Project dependencies and scripts
 ```
 
@@ -35,6 +36,7 @@ npm install
 - `npm run deploy:localhost` - Deploy contracts to localhost network
 - `npm run node` - Start local Hardhat network
 - `npm run clean` - Clean build artifacts
+- `npm run typechain` - Generate TypeScript bindings for contracts
 
 ### Usage
 
@@ -71,9 +73,10 @@ The project includes a sample `Lock` contract that demonstrates:
 ## Development
 
 - Add your smart contracts to the `contracts/` directory
-- Write tests in the `test/` directory
-- Create deployment scripts in the `scripts/` directory
-- Configure networks in `hardhat.config.js`
+- Write tests in the `test/` directory (TypeScript)
+- Create deployment scripts in the `scripts/` directory (TypeScript)
+- Configure networks in `hardhat.config.ts`
+- TypeScript bindings are automatically generated in `typechain-types/`
 
 ## Testing
 
