@@ -7,6 +7,10 @@
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat run scripts/deploy.ts",
     "deploy:localhost": "npx hardhat run scripts/deploy.ts --network localhost",
+    "deploy:base-sepolia": "npx hardhat run scripts/deploy.ts --network baseSepolia",
+    "deploy:base": "npx hardhat run scripts/deploy.ts --network base",
+    "verify:base-sepolia": "npx hardhat verify --network baseSepolia",
+    "verify:base": "npx hardhat verify --network base",
     "node": "npx hardhat node",
     "clean": "npx hardhat clean",
     "typechain": "npx hardhat typechain"
@@ -21,5 +25,8 @@
     "hardhat": "^2.26.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }
