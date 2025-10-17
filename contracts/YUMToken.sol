@@ -6,6 +6,18 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 /**
+ * @dev Interface for YUMAerodromeAdapter
+ */
+interface IYUMAerodromeAdapter {
+    function graduateToken(
+        address yumToken,
+        address creator,
+        uint256 ethAmount,
+        uint256 tokenAmount
+    ) external payable returns (address pool, address locker);
+}
+
+/**
  * @title YUMToken
  * @dev ERC20 token contract for YUM.fun platform
  * Each token has a fixed supply of 1 billion tokens
@@ -249,12 +261,22 @@ contract YUMToken is ERC20, Ownable, ReentrancyGuard {
             uint256 ethForLP = totalEthRaised;
             uint256 tokensForLP = (TOTAL_SUPPLY * 207) / 1000; // 20.7% of total supply
             
-            // Transfer tokens to Aerodrome integration
-            _transfer(address(this), aerodromeIntegration, tokensForLP);
+            // Approve Aerodrome adapter to spend tokens
+            _approve(address(this), aerodromeIntegration, tokensForLP);
             
-            // For now, just emit the graduation event without calling Aerodrome
-            // TODO: Implement actual Aerodrome integration
-            emit TokenGraduated(address(this), ethForLP, block.timestamp);
+            // Call Aerodrome adapter to graduate token
+            // Note: The adapter will handle pool creation and liquidity locking
+            try IYUMAerodromeAdapter(aerodromeIntegration).graduateToken{value: ethForLP}(
+                address(this),
+                owner(),
+                ethForLP,
+                tokensForLP
+            ) returns (address /*pool*/, address /*locker*/) {
+                // Successfully graduated - event already emitted above
+            } catch {
+                // If graduation fails, revert to allow retry
+                revert("Graduation to Aerodrome failed");
+            }
         }
     }
     
