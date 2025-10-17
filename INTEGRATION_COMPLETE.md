@@ -236,7 +236,7 @@ const WETH = "0x4200000000000000000000000000000000000006";
 | Token Supply | 1,000,000,000 | 1 billion tokens |
 | Graduation Threshold | 4 ETH | Net after fees |
 | LP Percentage | 20.7% | 207M tokens |
-| Lock Duration | 365 days | Configurable |
+| Lock Duration | Permanent | Forever locked |
 | Trading Fee | 0.3% | Split 3 ways |
 | First Buy Fee | 0.002 ETH | Network fee |
 

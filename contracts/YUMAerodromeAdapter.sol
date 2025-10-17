@@ -28,7 +28,7 @@ contract YUMAerodromeAdapter is Ownable, ReentrancyGuard {
     address public yumFactory;
 
     // Constants for graduation
-    uint256 public constant LOCK_DURATION = 365 days; // 1 year lock
+    uint32 public constant LOCK_DURATION = type(uint32).max; // Permanent lock (like pump.fun)
     uint16 public constant BRIBEABLE_SHARE = 500; // 5% bribeable
 
     // Events

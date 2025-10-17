@@ -42,11 +42,11 @@ When a token reaches the 4 ETH threshold:
 // └── Calls YUMAerodromeAdapter.graduateToken()
       ├── Creates pool on Aerodrome via V2PoolLauncher
       ├── Adds liquidity (4 ETH + 207M tokens)
-      └── Locks liquidity for 1 year via V2Locker
+      └── Locks liquidity PERMANENTLY via V2Locker (no unlock)
 ```
 
 ### 3. **Liquidity Locking**
-- **Duration**: 365 days (configurable)
+- **Duration**: PERMANENT (forever locked, like pump.fun)
 - **Amount**: 20.7% of total supply + all raised ETH
 - **Owner**: Token creator
 - **Bribeable**: 5% of rewards can be used for bribes
@@ -171,7 +171,7 @@ REPORT_GAS=true npx hardhat test
 | Threshold | 4 ETH | Net amount after fees |
 | LP Tokens | 20.7% | 207M out of 1B |
 | LP ETH | 4 ETH | All raised ETH |
-| Lock Duration | 365 days | Configurable |
+| Lock Duration | Permanent | Forever (type(uint32).max) |
 
 ## 🔒 Security Considerations
 
