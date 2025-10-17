@@ -13,14 +13,14 @@ import "@openzeppelin/contracts/utils/Pausable.sol";
  */
 contract YUMFactory is Ownable, ReentrancyGuard, Pausable {
     // Fee structure constants
-    uint256 public constant FIRST_BUY_FEE = 0.02 ether; // 0.02 ETH for first buy
+    uint256 public constant FIRST_BUY_FEE = 0.002 ether; // 0.002 ETH for first buy
     uint256 public constant TRADING_FEE_BASIS_POINTS = 30; // 0.3% (30 basis points)
     uint256 public constant PROTOCOL_FEE_BASIS_POINTS = 5; // 0.05% to protocol
     uint256 public constant CREATOR_FEE_BASIS_POINTS = 5; // 0.05% to creator
     uint256 public constant LIQUIDITY_FEE_BASIS_POINTS = 20; // 0.20% to liquidity
     
     // Minimum amounts
-    uint256 public constant MIN_FIRST_BUY_AMOUNT = 0.04 ether; // Minimum ETH needed for first buy
+    uint256 public constant MIN_FIRST_BUY_AMOUNT = 0.004 ether; // Minimum ETH needed for first buy
     uint256 public constant MIN_TRADE_AMOUNT = 0.001 ether; // Minimum trade amount
     
     // State variables

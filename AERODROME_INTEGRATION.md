@@ -162,7 +162,7 @@ REPORT_GAS=true npx hardhat test
 ### Fee Structure
 | Action | Fee | Distribution |
 |--------|-----|--------------|
-| First Buy | 0.02 ETH | Protocol |
+| First Buy | 0.002 ETH | Protocol |
 | Trading | 0.3% | 0.05% Protocol, 0.05% Creator, 0.20% LP |
 
 ### Graduation
@@ -183,7 +183,7 @@ REPORT_GAS=true npx hardhat test
 
 ### Slippage Protection
 - ✅ 5% max slippage on pool creation
-- ✅ Minimum amounts enforced
+- ✅ Minimum amounts enforced (0.004 ETH first buy, 0.001 ETH trades)
 - ✅ Refunds for excess tokens
 
 ### Error Handling

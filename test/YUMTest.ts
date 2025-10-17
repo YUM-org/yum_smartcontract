@@ -71,7 +71,7 @@ describe("YUM.fun Contracts", function () {
 
     it("Should create a token with first buy", async function () {
       const firstBuyAmount = ethers.parseEther("0.1");
-      const totalPayment = firstBuyAmount + ethers.parseEther("0.02"); // 0.02 ETH first buy fee
+      const totalPayment = firstBuyAmount + ethers.parseEther("0.002"); // 0.002 ETH first buy fee
 
       const tx = await yumFactory.connect(user1).createToken(
         "Test Token",
@@ -98,8 +98,8 @@ describe("YUM.fun Contracts", function () {
     });
 
     it("Should fail to create token with insufficient first buy amount", async function () {
-      const firstBuyAmount = ethers.parseEther("0.01"); // Too low
-      const totalPayment = firstBuyAmount + ethers.parseEther("0.02");
+      const firstBuyAmount = ethers.parseEther("0.002"); // Too low (below 0.004 ETH minimum)
+      const totalPayment = firstBuyAmount + ethers.parseEther("0.002");
 
       await expect(
         yumFactory.connect(user1).createToken(
@@ -125,7 +125,7 @@ describe("YUM.fun Contracts", function () {
     beforeEach(async function () {
       // Create a token with first buy
       const firstBuyAmount = ethers.parseEther("0.1");
-      const totalPayment = firstBuyAmount + ethers.parseEther("0.02");
+      const totalPayment = firstBuyAmount + ethers.parseEther("0.002");
 
       await yumFactory.connect(user1).createToken(
         "Test Token",
@@ -201,7 +201,7 @@ describe("YUM.fun Contracts", function () {
     beforeEach(async function () {
       // Create a token with first buy
       const firstBuyAmount = ethers.parseEther("0.1");
-      const totalPayment = firstBuyAmount + ethers.parseEther("0.02");
+      const totalPayment = firstBuyAmount + ethers.parseEther("0.002");
 
       await yumFactory.connect(user1).createToken(
         "Test Token",
@@ -250,7 +250,7 @@ describe("YUM.fun Contracts", function () {
   describe("Fee Structure", function () {
     it("Should collect correct fees", async function () {
       const firstBuyAmount = ethers.parseEther("0.1");
-      const totalPayment = firstBuyAmount + ethers.parseEther("0.02");
+      const totalPayment = firstBuyAmount + ethers.parseEther("0.002");
 
       await yumFactory.connect(user1).createToken(
         "Test Token",

@@ -238,7 +238,7 @@ const WETH = "0x4200000000000000000000000000000000000006";
 | LP Percentage | 20.7% | 207M tokens |
 | Lock Duration | 365 days | Configurable |
 | Trading Fee | 0.3% | Split 3 ways |
-| First Buy Fee | 0.02 ETH | Network fee |
+| First Buy Fee | 0.002 ETH | Network fee |
 
 ---
 
