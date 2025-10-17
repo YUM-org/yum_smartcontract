@@ -31,7 +31,6 @@ contract YUMFactory is Ownable, ReentrancyGuard, Pausable {
     
     // Fee recipients
     address public protocolFeeRecipient;
-    address public treasury;
     address public aerodromeIntegration;
     
     // Statistics
@@ -72,9 +71,8 @@ contract YUMFactory is Ownable, ReentrancyGuard, Pausable {
         uint256 totalFees
     );
     
-    constructor(address _protocolFeeRecipient, address _treasury) Ownable(msg.sender) {
+    constructor(address _protocolFeeRecipient) Ownable(msg.sender) {
         protocolFeeRecipient = _protocolFeeRecipient;
-        treasury = _treasury;
     }
     
     /**
@@ -300,11 +298,10 @@ contract YUMFactory is Ownable, ReentrancyGuard, Pausable {
     }
     
     /**
-     * @dev Update fee recipients (only owner)
+     * @dev Update protocol fee recipient (only owner)
      */
-    function updateFeeRecipients(address _protocolFeeRecipient, address _treasury) external onlyOwner {
+    function updateProtocolFeeRecipient(address _protocolFeeRecipient) external onlyOwner {
         protocolFeeRecipient = _protocolFeeRecipient;
-        treasury = _treasury;
     }
     
     /**

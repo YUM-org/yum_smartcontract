@@ -14,7 +14,7 @@ describe("YUM.fun Contracts", function () {
 
     // Deploy YUMFactory
     const YUMFactory = await ethers.getContractFactory("YUMFactory");
-    yumFactory = await YUMFactory.deploy(owner.address, owner.address);
+    yumFactory = await YUMFactory.deploy(owner.address);
     
     // Deploy a mock ERC20 to use as WETH for testing
     const MockERC20 = await ethers.getContractFactory("contracts/YUMToken.sol:YUMToken");

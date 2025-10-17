@@ -71,8 +71,7 @@ async function main() {
   console.log("\n4️⃣  Deploying YUMFactory...");
   const YUMFactory = await ethers.getContractFactory("YUMFactory");
   const yumFactory = await YUMFactory.deploy(
-    deployer.address, // protocolFeeRecipient
-    deployer.address  // treasury
+    deployer.address // protocolFeeRecipient
   );
   await yumFactory.waitForDeployment();
   console.log("   ✅ YUMFactory deployed to:", await yumFactory.getAddress());
